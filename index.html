@@ -114,6 +114,30 @@
             </div>
         </section>
         <section data-background="examples/assets/awesome.gif"></section>
+        <section>
+            <h2>$scope</h2>
+            <p><span class="show-off">$scope</span> is an object that refers to the application model.<br/> It connects the <strong>View</strong> and the <strong>Controller</strong>, also called <strong>ViewModel</strong></p>
+
+            <div class="fragment">
+                <p class="mt">
+                    myController.js
+                </p>
+            <pre><code data-trim class="javascript">
+function MyController($scope) {
+    $scope.name = 'Henk Bakker';
+}
+            </code></pre>
+
+                <p class="mt">
+                    myView.html
+                </p>
+            <pre ng-non-bindable><code class="html" data-trim>
+&lt;form ng-controller="MyController"&gt;
+    &lt;input type="text" ng-model="name"&gt;
+&lt;/form&gt;
+            </code></pre>
+            </div>
+        </section>
         <section data-background-color="#268bd2" class="title">
             <h1>Instant Search</h1>
             <h3><a href="examples/search.html" target="_blank">Demo</a></h3>
