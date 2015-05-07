@@ -58,9 +58,9 @@
             </div>
         </section>
         <section data-background="examples/assets/men-in-black.jpg">
-            <h2><span class="white" style="top: -10px">Forget everything about</span></h2>
+            <h2><span class="white" style="top: -40px;position: relative">Forget everything about</span></h2>
 
-            <h1 class="fragment"><span class="white">JQuery</span></h1>
+            <h1 class="fragment"><span class="white" style="bottom: -40px;position: relative;">JQuery</span></h1>
         </section>
         <section>
             <h2>What is <span class="show-off">AngularJS</span></h2>
@@ -137,6 +137,101 @@ function MyController($scope) {
 &lt;/form&gt;
             </code></pre>
             </div>
+        </section>
+        <section>
+            <h2>Controllers</h2>
+
+            <p>The controller is a function that augment the <span class="show-off">$scope</span> object.<br>
+                It's used to add a value or to add a behavior to the <span class="show-off">$scope</span>.</p>
+
+          <pre ng-non-bindable class="mt fragment"><code data-trim class="javascript">
+function TodoCtrl($scope) {
+  $scope.todos = [
+    { text: 'Learn AngularJS', done: true  },
+    { text: 'Create an App',   done: false }
+  ];
+
+  $scope.addTodo = function () {
+    $scope.todos.push({ text: $scope.todoText, done: false });
+    $scope.todoText = '';
+  };
+};
+          </code></pre>
+        </section>
+        <section>
+            <section>
+                <h2>Directives</h2>
+                <blockquote>"Teach new tricks to the HTML"</blockquote>
+                <ol class="mt fragment">
+                    <li>Create custom attributes</li>
+                    <li>Create custom HTML tags<br/>
+                        <small>(based on W3C <i class="show-off">webcomponents</i> specification)</small>
+                    </li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Directives
+                    <small>2</small>
+                </h2>
+                <p>All the attributes that begin with <span class="show-off">"ng"</span> are AngularJS <span
+                        class="show-off">directives</span>.</p>
+                <ul class="mt fragment">
+                    <li>ng-app</li>
+                    <li>ng-controller</li>
+                    <li>ng-model</li>
+                    <li>ng-repeat</li>
+                    <li>ng-click</li>
+                    <li>ng-view</li>
+                    <li>...</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Directives
+                    <small>3</small>
+                </h2>
+                <p>How to use <i>directives</i></p>
+          <pre ng-non-bindable class="mt"><code data-trim class="html">
+&lt;!doctype html&gt;
+&lt;html ng-app="myApp"&gt;
+&lt;head&gt;
+  &lt;script src="../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;ul ng-controller="myListController"&gt;
+    &lt;li ng-repeat="item in items"&gt;
+      {{ item.name }}
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </code></pre>
+            </section>
+
+            <section>
+                <h2>Directives
+                    <small>4</small>
+                </h2>
+                <p>You can also create you own <i>directive</i>.</p>
+                <ul class="mt fragment">
+                    <li>
+                        <strong>element</strong>: <span
+                            class="show-off">&lt;my-directive>&lt;/my-directive&gt;</span>
+                    </li>
+                    <li class="mt">
+                        <strong>atribute</strong>: <span
+                            class="show-off">&lt;span my-directive="value"&gt;&lt;/span&gt;</span>
+                    </li>
+                    <li class="mt">
+                        <strong>class</strong>: <span class="show-off">&lt;span class="my-directive: value;"&gt;&lt;/span&gt;</span>
+                    </li>
+                    <li class="mt">
+                        <strong>comment</strong>: <span
+                            class="show-off">&lt;!-- directive: my-directive value --&gt;</span>
+                    </li>
+                </ul>
+            </section>
         </section>
         <section data-background-color="#268bd2" class="title">
             <h1>Instant Search</h1>
